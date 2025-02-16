@@ -1,35 +1,35 @@
-const figlet = require("figlet");
-const chalk = require("chalk");
-const express = require("express");
+const http = require('http');
 
-const app = express();
-const PORT = 3000;
-
-// Fancy ASCII banner
-console.log(
-  chalk.blue(
-    figlet.textSync("Tech Intelligence", {
-      font: "Big",
-      horizontalLayout: "default",
-      verticalLayout: "default",
-    })
-  )
-);
-console.log(chalk.green.bold("\n🚀 Welcome to the Ultimate DevOps Course! 🚀\n"));
-console.log(chalk.cyan("Your journey to mastering DevOps starts here...\n"));
-
-// Basic web server
-app.get("/", (req, res) => {
-  res.send(`
-    <div style="text-align: center; font-family: Arial, sans-serif; padding: 50px;">
-      <h1 style="font-size: 50px; color: #007BFF;">🚀 Welcome to Tech Intelligence 🚀</h1>
-      <h2 style="font-size: 30px; color: #28A745;">The Ultimate DevOps Course</h2>
-      <p style="font-size: 20px; color: #333;">Your journey to mastering DevOps starts here...</p>
-    </div>
-  `);
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`
+        <html>
+        <head>
+            <title>Tech Intelligence</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #121212;
+                    color: #00ffcc;
+                    text-align: center;
+                    padding: 50px;
+                }
+                h1 {
+                    font-size: 50px;
+                    text-shadow: 3px 3px 10px #00ffcc;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>🚀 Welcome to Tech Intelligence 🚀</h1>
+            <h2>The Ultimate DevOps Course</h2>
+        </body>
+        </html>
+    `);
 });
 
-app.listen(PORT, () => {
-  console.log(chalk.magenta.bold(`\n🔥 Server running on http://localhost:${PORT} 🔥\n`));
+const PORT = 3000;
+server.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
 
