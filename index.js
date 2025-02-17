@@ -21,8 +21,8 @@ const server = http.createServer((req, res) => {
             </style>
         </head>
         <body>
-            <h1>🚀 Welcome to Tech Intelligence 🚀</h1>
-            <h2>The Ultimate DevOps Course</h2>
+            <h1>Welcome to Tech Intelligence</h1>
+            <h2>The Ultimate DevOps Course in INDIA</h2>
         </body>
         </html>
     `);
